@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Список палат{% endblock %}
+
+{% block header %}Список палат{% endblock %}
+
+{% block content %}
+{% if wards %}
+<table>
+    <thead>
+        <tr>
+            <th>Номер</th>
+            <th>Вместимость</th>
+            <th>Занято мест</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ward in wards %}
+            <tr>
+                <td>{{ ward.number }}</td>
+                <td>{{ ward.capacity }}</td>
+                <td>{{ ward.occupancy }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+    <i>Список пуст</i>
+{% endif %}
+{% endblock %}

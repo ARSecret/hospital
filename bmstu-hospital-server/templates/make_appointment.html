@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}Запись к врачу{% endblock %}
+
+{% block header %}Записаться на приём к врачу{% endblock %}
+
+{% block content %}
+<h3>Врач: {{ doctor.speciality }} {{ doctor.last_name }} {{ doctor.first_name }} {{ doctor.patronymic }}</h3>
+{% endblock %}

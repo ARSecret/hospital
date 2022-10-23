@@ -1,0 +1,11 @@
+html {
+    background-color: cyan;
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    padding: 16px;
+    background-color: beige;
+
+}

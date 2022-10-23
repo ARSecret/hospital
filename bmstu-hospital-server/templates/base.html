@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bmstu_lab/styles.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <h1>{% block header %}{% endblock %}</h1>
+    <h3>Дата: {{ current_date }}</h3>
+    {% block content %}{% endblock %}
+
+    <br>
+    Карта сайта:
+    <ul>
+        <li><a href="{% url 'doctors' %}">Список врачей</a></li>
+        <li><a href="{% url 'patients' %}">Список пациентов</a></li>
+        <li><a href="{% url 'wards' %}">Список палат</a></li>
+        <li><a href="{% url 'cases' %}">История болезней</a></li>
+    </ul>
+</body>
+</html>

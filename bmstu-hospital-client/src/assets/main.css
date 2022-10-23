@@ -1,0 +1,23 @@
+@import "./base.css";
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+th {
+  padding: 0 1em 0 1em;
+}
+
+td, th {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table.inner-table {
+  border-style: hidden;
+}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Список врачей{% endblock %}
+
+{% block header %}Список врачей{% endblock %}
+
+{% block content %}
+{% if doctors %}
+<table>
+    <thead>
+        <tr>
+            <th>Специальность</th>
+            <th>ФИО</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for doctor in doctors %}
+            <tr>
+                <td>{{ doctor.speciality }}</td>
+                <td>{{ doctor.last_name }} {{ doctor.first_name }} {{ doctor.patronymic }}</td>
+                <td><a href="{% url 'make_appointment' doctor.id %}">Записаться на приём</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+    <i>Список пуст</i>
+{% endif %}
+{% endblock %}

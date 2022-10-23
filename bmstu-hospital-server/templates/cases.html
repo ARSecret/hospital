@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Список врачей{% endblock %}
+
+{% block header %}Список врачей{% endblock %}
+
+{% block content %}
+{% if cases %}
+<table>
+    <thead>
+        <tr>
+            <th>Дата поступления</th>
+            <th>Выписан</th>
+            <th>Дата выписки</th>
+            <th>ФИО пациента</th>
+            <th>ФИО врача</th>
+            <th>Номер палаты</th>
+            <th>Описание</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for case in cases %}
+            <tr>
+                <td>{{ case.start_date.isoformat }}</td>
+                <td>{{ case.active|yesno:'Нет,Да' }}</td>
+                <td>{{ case.end_date.isoformat|default:'Нет' }}</td>
+                <td>{{ case.patient.last_name }} {{ case.patient.first_name }} {{ case.patient.patronymic }}</td>
+                <td>{{ case.doctor.last_name }} {{ case.doctor.first_name }} {{ case.doctor.patronymic }}</td>
+                <td>{{ case.ward.number|default:'Нет' }}</td>
+                <td>{{ case.description }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+    <i>Список пуст</i>
+{% endif %}
+{% endblock %}
